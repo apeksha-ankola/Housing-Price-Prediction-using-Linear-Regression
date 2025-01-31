@@ -1,8 +1,7 @@
 # Import necessary libraries
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-
+from sklearn.metrics import mean_squared_error, r2_score
 
 # Load the dataset and preprocess
 data = pd.read_csv('Housing Price data set.csv')
@@ -66,3 +65,10 @@ denormalise_price(Y_test))
 print("Mean Absolute Percentage Error:", error, "%")
 print('Predicted price =', denormalise_price(Y_pred[2][0]))
 print('Actual price =', denormalise_price(Y_test[2][0]))
+
+# mean square error calculations
+mse = mean_squared_error(Y_test, Y_pred)
+r2 = r2_score(Y_test, Y_pred)
+
+print("Mean Squared Error (MSE):", mse)
+print("R-squared (R²):", r2)
